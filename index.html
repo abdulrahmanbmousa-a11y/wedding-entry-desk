@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Entry Desk">
+<meta name="apple-mobile-web-app-title" content="مكتب الدخول">
 <meta name="theme-color" content="#7B4A6E">
 <meta name="robots" content="noindex, nofollow">
-<title>Wedding Entry Desk</title>
+<title>مكتب الدخول</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%8D%3C/text%3E%3C/svg%3E">
 <style>
 :root{
@@ -38,13 +38,14 @@
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0; background:var(--bg); color:var(--ink);
-  font-family:Karla,"Segoe UI",system-ui,sans-serif; font-size:16px; line-height:1.5;
+  font-family:Tajawal,"Segoe UI",system-ui,sans-serif; font-size:16px; line-height:1.65;
   padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
 }
 .wrap{max-width:600px; margin:0 auto; padding:20px 16px 56px; display:flex; flex-direction:column; gap:18px}
-header{text-align:center; display:flex; flex-direction:column; gap:5px; padding-top:6px}
-h1{font-family:"Gilda Display",Georgia,serif; font-weight:400; font-size:clamp(28px,7vw,38px); margin:0; text-wrap:balance}
-.sub{color:var(--muted); font-size:12px; letter-spacing:.14em; text-transform:uppercase}
+header{text-align:center; display:flex; flex-direction:column; gap:6px; padding-top:6px}
+h1{font-family:"Aref Ruqaa",Tajawal,Georgia,serif; font-weight:700; font-size:clamp(32px,8vw,44px); margin:0; line-height:1.3; text-wrap:balance}
+.sub{color:var(--muted); font-size:13px; letter-spacing:.02em}
+.num{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; direction:ltr; unicode-bidi:isolate}
 .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
 .scanner{overflow:hidden}
 .stage{position:relative; aspect-ratio:1/1; background:var(--surface-2); display:flex; align-items:center; justify-content:center}
@@ -52,7 +53,7 @@ video{width:100%; height:100%; object-fit:cover; display:none}
 body.live video{display:block}
 .idle{display:flex; flex-direction:column; align-items:center; gap:14px; padding:28px; text-align:center}
 body.live .idle{display:none}
-.idle p{margin:0; color:var(--muted); max-width:34ch; font-size:14px}
+.idle p{margin:0; color:var(--muted); max-width:32ch; font-size:14.5px}
 .idle .glyph{font-size:40px; line-height:1}
 .reticle{position:absolute; inset:14%; display:none; pointer-events:none}
 body.live .reticle{display:block}
@@ -65,7 +66,7 @@ body.live .reticle{display:block}
 body.live .scanbar{display:block; animation:sweep 2.6s ease-in-out infinite}
 @keyframes sweep{0%,100%{top:16%}50%{top:82%}}
 @media (prefers-reduced-motion:reduce){body.live .scanbar{animation:none; top:50%}}
-button{font-family:inherit; font-size:15px; font-weight:600; cursor:pointer; border-radius:10px; border:1px solid transparent; padding:12px 18px}
+button{font-family:inherit; font-size:15px; font-weight:700; cursor:pointer; border-radius:10px; border:1px solid transparent; padding:12px 18px}
 button:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
 .btn-primary{background:var(--accent); color:var(--accent-ink)}
 .btn-primary:hover{filter:brightness(1.08)}
@@ -79,9 +80,9 @@ button:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.verdict{animation:none}}
 .verdict .mark{font-size:28px; line-height:1; width:48px; height:48px; border-radius:50%; display:grid; place-items:center; flex:0 0 auto; font-weight:700}
 .verdict .msg{display:flex; flex-direction:column; gap:3px; min-width:0}
-.verdict .msg strong{font-size:19px}
-.verdict .msg span{font-size:13px}
-.verdict .msg code{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:12px; word-break:break-all; opacity:.85}
+.verdict .msg strong{font-size:20px}
+.verdict .msg span{font-size:13.5px}
+.verdict .msg code{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:12px; word-break:break-all; opacity:.85; direction:ltr; unicode-bidi:isolate}
 .v-ok{background:var(--ok-soft); border-color:var(--ok); color:var(--ok)}
 .v-ok .mark{background:var(--ok); color:var(--ok-soft)}
 .v-warn{background:var(--warn-soft); border-color:var(--warn); color:var(--warn)}
@@ -91,44 +92,45 @@ button:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
 .v-wait{background:var(--surface-2); border-color:var(--line); color:var(--muted)}
 .v-wait .mark{background:var(--line); color:var(--muted)}
 .stats{display:grid; grid-template-columns:repeat(3,1fr); text-align:center}
-.stat{padding:14px 8px; border-right:1px solid var(--line)}
-.stat:last-child{border-right:0}
-.stat b{display:block; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; font-size:24px; font-weight:600}
-.stat span{font-size:11px; text-transform:uppercase; letter-spacing:.09em; color:var(--muted)}
+.stat{padding:14px 8px; border-inline-end:1px solid var(--line)}
+.stat:last-child{border-inline-end:0}
+.stat b{display:block; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; font-size:25px; font-weight:600}
+.stat span{font-size:11.5px; color:var(--muted); font-weight:500}
 .bar{height:5px; background:var(--surface-2); border-radius:0 0 var(--radius) var(--radius); overflow:hidden}
 .bar i{display:block; height:100%; background:var(--accent); width:0; transition:width .35s ease}
 .panel{padding:14px; display:flex; flex-direction:column; gap:10px}
-label{font-size:11px; text-transform:uppercase; letter-spacing:.09em; color:var(--muted); font-weight:700}
+label{font-size:12px; color:var(--muted); font-weight:700}
 input[type=text],input[type=search]{
   width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--line);
   background:var(--bg); color:var(--ink); font-family:"IBM Plex Mono",monospace; font-size:16px;
+  direction:ltr; text-align:center;
 }
 input:focus{outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent)}
-.hint{font-size:12.5px; color:var(--muted); margin:0}
+.hint{font-size:13px; color:var(--muted); margin:0}
 .manual-row{display:flex; gap:10px}
 .manual-row input{flex:1; min-width:0}
-details.list summary{list-style:none; cursor:pointer; padding:14px; display:flex; justify-content:space-between; align-items:center; font-weight:700; font-size:14px}
+details.list summary{list-style:none; cursor:pointer; padding:14px; display:flex; justify-content:space-between; align-items:center; font-weight:700; font-size:14.5px}
 details.list summary::-webkit-details-marker{display:none}
 details.list summary::after{content:"\25BE"; color:var(--muted)}
 details.list[open] summary::after{content:"\25B4"}
 .list-body{border-top:1px solid var(--line); padding:12px; display:flex; flex-direction:column; gap:10px}
 .rows{max-height:52vh; overflow-y:auto; display:flex; flex-direction:column; gap:6px}
 .row{display:flex; align-items:center; gap:10px; padding:9px 10px; border-radius:9px; background:var(--bg); border:1px solid var(--line)}
-.row .n{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; font-size:13px; font-weight:600; width:52px; flex:0 0 auto}
+.row .n{font-size:13.5px; font-weight:700; width:84px; flex:0 0 auto}
 .row .s{flex:1; font-size:13px; color:var(--muted); min-width:0}
 .row.used .s{color:var(--ok)}
 .row.used{background:var(--ok-soft); border-color:var(--ok)}
-.row button{padding:6px 12px; font-size:12px; border-radius:7px; flex:0 0 auto}
-.empty{text-align:center; color:var(--muted); font-size:13px; padding:18px}
-footer{text-align:center; color:var(--muted); font-size:12px; line-height:1.7}
-.err{color:var(--bad); font-size:13px; margin:0}
+.row button{padding:6px 14px; font-size:12.5px; border-radius:7px; flex:0 0 auto}
+.empty{text-align:center; color:var(--muted); font-size:13.5px; padding:18px}
+footer{text-align:center; color:var(--muted); font-size:12.5px; line-height:1.9}
+.err{color:var(--bad); font-size:13.5px; margin:0}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1>Entry Desk</h1>
-    <div class="sub">250 guest passes &middot; one entry each</div>
+    <h1>مكتب الدخول</h1>
+    <div class="sub"><span class="num">300</span> دعوة &middot; كل دعوة تدخل مرة واحدة</div>
   </header>
 
   <div id="verdict" class="verdict" role="status" aria-live="assertive">
@@ -141,49 +143,49 @@ footer{text-align:center; color:var(--muted); font-size:12px; line-height:1.7}
       <video id="video" playsinline muted></video>
       <div class="idle">
         <div class="glyph">&#9635;</div>
-        <p>Point the camera at a guest&rsquo;s pass. Valid passes are admitted and marked used automatically.</p>
+        <p>وجّه الكاميرا نحو دعوة الضيف. الدعوة الصحيحة يُسمح بدخولها وتُسجَّل تلقائيًا.</p>
       </div>
       <div class="reticle"><i></i><i></i><i></i><i></i></div>
       <div class="scanbar"></div>
     </div>
     <div class="btn-row">
-      <button id="startBtn" class="btn-primary">Start camera</button>
-      <button id="stopBtn" class="btn-ghost" style="display:none">Stop camera</button>
+      <button id="startBtn" class="btn-primary">تشغيل الكاميرا</button>
+      <button id="stopBtn" class="btn-ghost" style="display:none">إيقاف الكاميرا</button>
     </div>
     <p id="camErr" class="err" style="display:none; padding:0 14px 12px; margin:0"></p>
   </section>
 
   <section class="card">
     <div class="stats">
-      <div class="stat"><b id="sIn">0</b><span>Admitted</span></div>
-      <div class="stat"><b id="sLeft">250</b><span>Not yet in</span></div>
-      <div class="stat"><b id="sTotal">250</b><span>Passes issued</span></div>
+      <div class="stat"><b id="sIn">0</b><span>دخلوا</span></div>
+      <div class="stat"><b id="sLeft">300</b><span>لم يدخلوا بعد</span></div>
+      <div class="stat"><b id="sTotal">300</b><span>إجمالي الدعوات</span></div>
     </div>
     <div class="bar"><i id="progress"></i></div>
   </section>
 
   <section class="card panel">
-    <label for="manual">Type a pass instead</label>
+    <label for="manual">أدخل الدعوة يدويًا</label>
     <div class="manual-row">
-      <input id="manual" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="47, or the full code">
-      <button id="checkBtn" class="btn-primary">Check</button>
+      <input id="manual" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="47 أو الكود كاملاً">
+      <button id="checkBtn" class="btn-primary">تحقّق</button>
     </div>
-    <p class="hint">The pass number printed under each QR code works on its own &mdash; type 47 for pass 47.</p>
+    <p class="hint">الرقم المطبوع تحت كل كود يكفي وحده — اكتب <span class="num">47</span> للدعوة رقم <span class="num">47</span>.</p>
   </section>
 
   <details class="card list">
-    <summary><span>Guest list &amp; manual overrides</span></summary>
+    <summary><span>قائمة الضيوف والتعديل اليدوي</span></summary>
     <div class="list-body">
-      <input id="search" type="search" inputmode="numeric" placeholder="Jump to pass number" autocomplete="off">
+      <input id="search" type="search" inputmode="numeric" placeholder="ابحث برقم الدعوة" autocomplete="off">
       <div class="rows" id="rows"></div>
       <div class="btn-row" style="border-top:0; padding:0">
-        <button id="exportBtn" class="btn-ghost">Show record</button>
-        <button id="resetBtn" class="btn-ghost">Reset all</button>
+        <button id="exportBtn" class="btn-ghost">عرض السجل</button>
+        <button id="resetBtn" class="btn-ghost">مسح الكل</button>
       </div>
     </div>
   </details>
 
-  <footer>Check-ins are saved on the phone that scanned them and survive a refresh.<br>Use one phone at the door so the count stays in one place.</footer>
+  <footer>تُحفظ تسجيلات الدخول على الهاتف الذي مسح الأكواد وتبقى بعد تحديث الصفحة.<br>استخدم هاتفًا واحدًا على الباب حتى يبقى العدّ في مكان واحد.</footer>
 </div>
 
 <script>(function webpackUniversalModuleDefinition(root, factory) {
@@ -10293,14 +10295,13 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
 <script>
 (function(){
   "use strict";
-  // Pass codes are never stored here in readable form: each entry is a slow
-  // PBKDF2 fingerprint, so a scan can be verified but no code can be read off
-  // this page and forged.
-  var FP = ["509089aefbc9c32c3251c054174588cf", "0d1d586b6cd6ee3dca9c404adf116c75", "9769e483761dfa6ae193855f05ae0201", "2a93f1a6987eef4172823efd54249b9d", "b4074ef0b5d18a5ee753d359b7751c04", "faff9f5eca2e14a33f9df89c2aa7ac7f", "d59f9b0e3f836043542efc1acccd9336", "5c593e7d2b97f9af311630245ca9256b", "d1d37a0b9b66f7b78add0249111f2a05", "0d5c9ca756781a3eb3ed4d3ebef01075", "a4dd0da665606de06d9cea8fe7b1f29e", "beb75fdcc5d5658ff56df4ede3f202b2", "8658e2e00b0e892fad88f75ba40bba54", "49b10ad3d1aa2ea0b2dd913b72186b23", "eebac3035bf1ac0cbfbfc21b91aacaaf", "77acbd2430a324ad1772330eba8ab5ba", "98b46d447632724dbde20ac17ac93f5d", "8ddb247cffc48ccdac94b1f7c00f2be8", "85f87a6053e5b0e742a42fe7fee0c137", "9ac736513212f1618e88e261b2db28b4", "11ae5ebd77e23a4fec2dfa6ca19b45d5", "12cb9863b36dc360651a785316c4b80b", "2e6b4184d23ed10bea3b3b66c55a4d33", "6255f210e94f74254f1effe36e3fa8a3", "a9f2c5e34168ff37f4d2d07bb8ffda46", "2f6d2de28330339d155ac5574c878ed0", "5a4fd595818cac6e8b562b696e94aeef", "39921e9b168cd5a0550242381ff3713f", "204fd22831b70fe77d4d938b74054c46", "5f36efd474051dbba6040b40e3606af9", "fdf1b3979dc0db8a2d21377a87c68a4e", "6dc547de12003888059c9f9784d072d9", "daa3fcbeb361b1be868d8c4749b75110", "85e5b90b5c30fa6c7c7fdaaeb71c0f6f", "e5f9ca2410a0006510e8688f9e3b31a7", "c17d328de9515f4f3f1663cd74c6d218", "84138ffd6407f66c784fc9228bcd2c43", "cd9e3d78bc63a4814f4fcc3350268fba", "d5554934b691507b1ab10c39d027bb90", "9d7a35b7d8cf1f12cfb1e07bd0fdf0d8", "ffbc0eecaca8bb1b4fc7640e7a9bb31e", "b3dabbfda469d1aa04780e48b4971649", "fec2b2d932bff5a849e50b11e6481fff", "826ecb7581b06cff596292851e249510", "d584304b5d7d830a693023fe0b9d460d", "08aa4815977c1d3f5d2404e1ae50e1df", "8129e55fb8bf9ae951d859a6a3e1d674", "f7d6e00312d258653a8cf593837003d7", "6f0dea1917383a0f39e69406126ecac7", "4026ee1f47a8eecfbdc449d26e7ba2c0", "2b02d282cf3fd563beb34590afb10f21", "328cf404e4597d7e1989a96c48b938e1", "42b68dff9f961aebdadd2379b71f6f1d", "4a129c9b259a8cbe6ade91cd5e894a5b", "9d772843ba43b461084ecbe01c4f4b79", "0c0e0d1257610d707fcb3bffe5eeae03", "7366e69f3941f78b093f3d60ed62c2cb", "1da3578f8d9b178cb13b0b5a19ac6ddb", "95595037041f7de3f7cf5cac42f27894", "6d47ab095fec43025ffb5afccaf53ed0", "b90522aa7a9cbce8136eebc4a51d1771", "0f225f69a6139563cd52c51a835bfb51", "56aa61e0a6948d3e61ba1a9cc8979804", "8ef0db00cd7a3c05a12bdbe5edbe67da", "abd72bd8931999134114cfafd68e72e7", "c11348b553595615b365cf2f88f3c720", "955a3bced809432d1ddccd33cf31a4ca", "f16f319d6d5e4bc67fa22a0907417a16", "cd0864b08408e90cab2a680e3538e3d2", "2257ae497cddf4bcd8ca34fa0f301cca", "40c8b5fa23e57d97702c48d50da3cddf", "7b46c9fce2901b70ad480fc5be1e6bc9", "b821524bf1391b7fc5c41ae5f10eae1f", "71c4f83bb89125ddaf479f3c3c79f8e7", "dc5cba500bbc93176f05aa79e14f1d9f", "1e105b88089b350f6d4804a95e9108b9", "9a7096e5be11e257f863ae97c175cbbf", "b98442c83180c93ad19f6ba5aafb6bd5", "b9333b1bc5c61641832cca80fb0f2ba9", "066f6070ff03090bbf7bbd1028a87c4b", "2f77c55d269d323ab456933aed69caf8", "d3ba7ee77ee8cbd5e1b465efc6b503ac", "78277225fb2b0ec4101153b5e80eb91f", "741b2219d873296cb03c9a47e8544882", "107197168da49d0eb69992cad820e1c9", "c12984dcbf190849090461666194ebe1", "74ecee13ea039f92ea923586f6263a4c", "663d649b5163dc99fc4eab434a8c6c39", "929388fd80f6df0416852d0c9640a592", "21e369a2e93f931029a660ce79d08a5d", "84cae6850d16db55576bc172fbdbb1ab", "18f18ed774b233136b5b97653216b119", "7e2f2eb2d6e6127187265615f30f419c", "7371e69a1617e9d0a0bde243fa3b27fa", "1ed1ed7cb146043825018e65ba9f3601", "723c9fc0725b57e3f511921505d9bdc8", "a608651eef4dad0240729943add0f14c", "4db7afec75f7a18175f119df616b93d7", "9cc05b9d307f5fba0685293b6d4cf02b", "00b1105121db338dd206737cb0816aa0", "b84a9220b6ac8327326dcf7400a857d3", "1555884df9bc455179cfb2a202d400e5", "625900f2cfc83b4ea20a8365b063b7d0", "488f709058a52d23511b2707c95ad55e", "e1fcd37261ab92d0ee880266f0afb96b", "f77eb583820cd35917a16d6de63b6dbb", "45c9c9ab9ed4d519d422da93bb6d113b", "56f18bb284826b09f713383ee13808e9", "f94b930878b7b5bde19286fd81bb5494", "67a7405d582f9fe895676f160f59b6dc", "f79e96d0d6602bbba28a7a2c475841b7", "e39a6f8f52f3847c77241d548bce861b", "2c9524b178b28eaf9e4b7e3ff72ac3ce", "faf3b1492744dee50d61c078e462667c", "c632c70d9aedcce6fd8a9ad4784fa0cf", "4ffa5c4f430788605e9728b65f06de23", "1ac59237131c3408a92e2da46f3fd0fd", "c839ea026acef81b048689898ab69bae", "481ebcb03fbf4b1d1f093ff1256ef17c", "b9a99ebf82a9cf38d97ec0856411e141", "694c82893120169a5929ce05b25ae005", "8a64bd044310aae41bb564bb4c1ee3e3", "85527dc8fff9bb885c42f0832d1aadec", "dfd1c5a22ff7323d34cb932e063b61cb", "78036a5410bf92ec589f69716b54ae13", "56d7742f21a3850eb53077ec99533158", "0ffac11919caa77ab735ebfce6734d60", "198fc3982819f11d570c5bbb4b2b9aca", "935efedc6e0851f2d145bda8d8c72fe5", "e46ccfa3070cf372486a4449e62e6042", "bf1121406cc98e06e541a2d8d884519d", "f642af0feee160d18b323407b414aef4", "bcd968f41654bb87031486e3b66b4aac", "25b5e88a168444c3577e4b1cdbfadd79", "af997a9414fcda6c7687888257acc3a4", "f87169ed00bcbf693c33ebbcbb230d86", "ce2f54083cd1ccea7c2c031480127692", "5db81a3f86bc68931af81346d880fe41", "09deab402094c2f67248645e1c1e2d98", "96da9f2609a94ec33d473981fbba9dcd", "b7792afa987c1bbd7580eb3f0cfa596b", "6df865cd745c583fb5a04a1dcb489819", "1938c8213694c4679788f1107bcb31fe", "7882a0c789f7dbd26c10015b0dbc66d4", "3aab8ecbcedb54ce8815e462821399db", "f298b52e24593c63ed166e7e48860305", "1f5cde9cbdae7f0871a20c126b3bdf50", "a7c44d2d5ada117e8b38a7786507a1f5", "78fa66170cc8fe1472018f6eb3aac0fc", "8dca9f14cf3cc3ea916f4dc1910dfddd", "7a43aff424071155387299d76f6e28ff", "8b59fa4e7c6df165d1d72b2b28047ec0", "24630cc2f014395c2e0f629e3ea73105", "eb93ee6a8e9819d0dc4226e3d19a14ef", "c563c234358ce020cb491f188c066c2f", "ced0416e1326b75f9a035c7bc23b2fdb", "2521109ee3e3c6ea3348f1dccf4bdf31", "751fc13bac3b0116b7c1fb8266d64653", "047e21e1a63be3de7b57b4bdb43a14e8", "2501b3f32578cdd70222d7769c7abaf1", "3d3ecde5c91878cc3b737e7013ab74a8", "5124fe12a8cc7ba5c81285aea55d39b7", "a01a8e7f0bca0e3b0ac744798a61be51", "9d284958afa4ef2f2d3dbb2d3e290720", "c60a6d4a397de48af7b94db0fc055cf1", "b28d6532f8f2f4e38fe7cc4b27aa3426", "8ee22d68b27edcc45b950c0f706caffa", "bb83ab4dd41179bdc2ffe876c9b0affb", "11eb9af9623cf26ace40f3cfa5b0bd49", "e2d52f29a7728bc39a2ff8dcda7d8bad", "ee5b548c20dfb887957a58ba9781333c", "ca7717acc3a03240fe649f93df82ca47", "40bb555f6147e129df9248fd9ee524ca", "df9bd50b7b261481c1c6be49134f06a2", "04ba52feeed393c9c729206baa5913b9", "9fb24e11a39d8d52c69f5153c4f5deac", "c56ea564b7dcfc52cab4ca589f55b1f0", "1fae183e31fa4bd7c1267a4cb96b9ad4", "faeba95150cd8b39201bc73ccd67c2c3", "672b78189263120221a9540a4a636066", "0b01a797ef458db9dff2d7c25ae24a41", "7d135728128ff5b7ef9bfe92f6d4c169", "900de3c0e1bd05fb886b1b24855a5ec6", "b13fdf4aa6801070e6be4dedbbeb5efc", "6a6b7b0ce856a25352af1eaa66cb6995", "0d55c4b528ae3b7bb6da2cd5ed1eed98", "58ea4508d4f215bfc6089e85e13ebeec", "53e3dbc1bcd70e8d27ed1b5369114fe5", "4c7b65f726ce02a77d4aba8d9a26fbcb", "47d44657ad1869f4b5e926b44f2f1c2c", "2f3b95ed5d475e5c490fedb79325e75c", "c7513635ef30ba6b938d35b61f548778", "3d7cd7f0cfbd36e3455b57b513f4d55d", "a3ce2726fa275cc25b8f8288fdcbf0a2", "2453d302dbcb3c14e46551c6156a3fcf", "9f9b250b99f0b654dcac8c3e2748003c", "b2b519f36e5013ac42b7c74569cb3fbd", "fd6c35e251b57fae495e390d4f89a7c0", "2c891861c27c3a5d73d673234ae3ac8e", "f1c041a9ad7c536814e3c50eac78295c", "9da44a228790e180aefb226483b9378d", "6434b20c3f6d388fad4e14290e36df7e", "007553f74ef811efe4bcb4be81938cf4", "f9421224f5f98aed881f0a8a779283f4", "05d5830d116d92b695da37338ea83ed4", "022a0e991813a27a0e866c86438116f9", "78ae2bba01464bcdc530c60ccb2e4199", "ba6d8a27542c127cde8fe00cdeb9ef5d", "576611e0323cc7916eedeb75424d9bbe", "9b588a4c68871b8a0c956133e1437f9b", "5eeaaf8439fad14403cac5e31d0f6cfb", "4a912fc8ed561eca924642f57d98356b", "b6c8a9855af10e08a9ef569829babdb8", "0013f0191a09f7750e6ee4ca0b6ca28b", "593cf1136748345a1a389161862c40ee", "97d7f9b46564fcb25636f72c3ab134e8", "04d8c9241d68c50e2ce196c2d296d80c", "9046601a94141a9a090bf4847c02f82a", "c7cfac46a7f2ce0e352d6aec5eb7a98e", "a2def4f20225f457e9f3b7413cea1192", "b91a92622899fe74dfa827ef77b0c3e5", "fd31d4ab93ee84fbc137e23ee1d1410b", "8fe6bfb58b104986a5f4cbda08c1f47e", "59c1341bf30109eda6c70a0c2629793e", "c408f838555dedf5570886342426229c", "f001aa50c8281471cb4449b3ebd15a3d", "bf05d6d72809d5bbe03001ee9fb17d3e", "d141372e8030eaf4a133ec8199a35cf0", "8dede18a3fb9063a0d3ce884793ab0cd", "68cde5dd1ad95b14104d94e8f067c62c", "1590db1815a049862296e6ccaee17fea", "298f6db9eb339351e82bb48f76943fd1", "9d658fe0eaa1bef921e88455c5ca24ee", "181916c429ef5de9866076e451e21032", "20cc874022fb1c4f2733443be84fe35c", "816c7dc20163bad44b536bef42502f60", "135132945cbe4d4e5a97516d706ac0de", "af1cbb5c893e6c9d5d6961963b9b8fb2", "74739629f3c4b9e852d41ddee84fe3da", "dbd486bfa0012c5851f97e44b6594c35", "8a875b2d67a4c905a95ba5a88a4a6b09", "07fecf19a8efe35aa7c743857b6be98e", "b572cb2e238914c519d458da83c626bd", "cfe8495b445eeb92be81636b31c6793f", "4a0faf081161353b0585cb0de99f1eb0", "708011715b6d4701b972cc658fb63f73", "15bbe42439d41b2b112a64f2b2ad943d", "4e2edd43ba8d4c921b76dc8a09482ba7", "285871e2beaab8224afbf7079c823900", "36e5200bdd2d10e6d9d437f4cdeefe85"];
-  var SALT_HEX = "b153d96cac69fbc5baf363ff1b8fa023";
+  // أكواد الدعوات لا تُخزَّن هنا بصيغة مقروءة: كل دعوة محفوظة كبصمة PBKDF2 بطيئة،
+  // فيمكن التحقق من الكود دون إمكانية قراءته أو تزويره من هذه الصفحة.
+  var FP = ["671c3a5ae2201b9881b846b086d5472f", "9a07b4948a5c944977ed9ee7ee879f8c", "999955edfcae9d5227f9f270d30dbad7", "245274508cd73ad6bf3545790641b990", "14874a9d81f8fd8b49b7d027a6e7ac56", "001262c46a9d0ed82802e6479476f64e", "d9e5854df75649992ba88cbaea8f3ba0", "6032d682579a20e791a3bbf815212d50", "0ec59be75242b5d92fd1d0f6650e5352", "141644117985634e4a0ad0357481504e", "6da5b0e681a9679f41ceb6d1f2f469d6", "635e2a074883e2781b5ba4c97713d16e", "d4d0da56d617521bf084bf8cebc11955", "210c64033b74caf6085a5ca30e89ea95", "a989021cad8cc1dc5f73e2848f652e29", "8e3c4294ec2ce08676a571caf7aecca7", "f72dc9d8a76054575cd6d61615dec602", "6bf79edb6c51643c0353259b9022280d", "289aa3b1466fd1d0264014599b87cb96", "2e2e3aacab7c13cd6330658d45a90ca0", "b28a03c06676cfa381f254d1108a6d50", "9523525c73c80665a4e8bbef1669bdb6", "93d1d4430a6bd9e005ef93e9c7f4eff6", "6f6a09ac5cd4b561f01dc1ab5b21a86e", "a3f2918fe2ad85ea6af6af0c80a58f30", "56e3afe5e6a704c6181073a36d4e8dad", "b36905e534571394e4c1605ce3f909e4", "033190cd32aacb2d0f7bf59b6556fc20", "778f3722abd328f63083be6256edbb5e", "91caedebb4323b7e29a501e4fdb077a5", "07eba7f900fe95bf555be8da30848be6", "71b6e91dede2b3070669be383e9cd234", "cff706d6e5f6d3c09ddcd2c7ef8fb1cc", "8a042293f064ae99c725d888d1f0f874", "382071030dc5bdd339c6a0263f0bb560", "937c9bbe02ecd08314bd4f79256582c0", "49ca54affd12f3305a1b3c68a9c8b968", "7438fd1b4dbde25d8a638aad5427ff6b", "d88401f00208ed34fbbf90b267c1d789", "78c95f277bef3285ffac184f44a166eb", "c02873022454dcca1dab431d41385082", "4db274c9d31c748d11318161d75389a0", "3737f1b4411dc4db418668a22ed1ecee", "49fd08e5c4147e2be5d199668884c302", "003599d6f346b0629f8868b013eea242", "0478cc0d0697ceebe90215e9bc972722", "8fd40d6d6dd1acce56d3bfaa52c11eff", "df8415f169ca5613d7d55df6928c4522", "058d84a0c71611a0532a7f61edda81ac", "bdff600e84ad3ce1e1939f66adb0a4f1", "303f5f03d959d2a418da58fd88435dc2", "6dcd8b7c2b85758c9f3fceafa72fd30e", "3b08d66bd55b3488a5aa5fca8339207e", "8ebdf24e0d13bc03c7389486e41145a9", "29c0171edae1c6054c7ab2e1c5170451", "b35cb6994d6a596f518380c4714e45e2", "8d0d37517e2a26efed5b057350451d09", "b027eeab8956e6746e53210fc3c72034", "3a8a48b0980885aa1df1528558f064fb", "67bf354e871d648eed2e05ddfa86ac33", "ceec3cdfd3ba563dff405187011b14ae", "7c0420496c6a8063741cfbcd47a415d5", "fdb526aa406e29c24d330920217e61b1", "b404574264b842f8f8c40867b70a1406", "9358805fe3bfdc4a2c258d9c2c1aa343", "1a2600b88c81b1835868a416e2b03d7d", "36aa24a34f318e65f08e72c6b01778e1", "995cdb39616551d75a8b202a9a8097ae", "11049df8ccb9e3333bc801e125d8cb4f", "e7a658d73162a49bfd9830b8ae6f9d26", "1e4627b7ccacbd1bd554d5047a13559c", "8ee8ce81cf49727e5ab84ec0583184fa", "764ebbf5e1946b03ea01990370d99961", "c581c75de707d5cdef3f436965fdf9f3", "7bc3b8dfbacba92f23a868503249c0a6", "d4053008750a39b8e7678ff6514326f1", "609027dfeaa3e25f369bd6a48e875d58", "fc0be0b1b157882cbf59778f798df3df", "783418c48fda2baf741ea082292b13f3", "05ffeb5b50bfb3a8bbccf271e6438383", "399150b468cf5c63ed68b356fa323116", "4be25048950b0e7124db73917ee1606d", "3559cba6ac793e04673e2c8c6697f20d", "6028b9a0bcbddc20462a3733684ab7c8", "6843f9aa9c1c8d151d31d809c9b0e409", "bcad262856bae7362556b090bf3e4877", "ea391c7d825ce56753ec5a0e67161d93", "2c89613c54a5e4b713f9fd9cb7d91307", "04420623ea6cc6816bd3f7f14d9a6642", "86f512895fd4b92b5148e417d6c5b5ff", "9a946cc93900759014517610150f61ad", "c75f844e84cbc4e77a99c8f1d6a761c5", "f011fb7acb5ba6c05a8e2ea31871b47d", "30ad0499887b05c9767a0a00b7e915b8", "1b6e8edc4249285dbda2465712a45d67", "c542c30ad44e30735d009af05a3b6d7b", "e6cb8a9e300f796c87b0aab095b04c86", "7f80e74fefdc7df45e01ce611d6c6f29", "f156c55ac849c3c0bde5c04598d7821d", "5b67e198abe5bd989f4405049745d14f", "9060d3917bb726e01f504a204c5bc28c", "cf3e35b622877dfd8efd33ada12349ab", "3b5c64980b7881b933015af454894eec", "a49ddfa7c0c752cc54f78adcbbf4f3c2", "40ce92faf8f585f78dedf1679eef5234", "3afa5171a9fe03ea79760aa7f2b0ec5c", "0995cf14e6bac4bde08c1154d21a3e0f", "b69a764badeac6fe1deeffdfbc535592", "133131a275684ff5627a4749441f834a", "1ff07f7358ceb8dfe69891dc2b653fd8", "d610a933866d3c81c182fe4d8e0278cc", "8700816f5046fc78359a039c56e97d75", "fdb206c669cd4f48e3efa28dbe1592c6", "a2d219456b090ccabc4a1e616ff10649", "fe2760ab681770754713be42dc6505a1", "a076c239ecf9baeea0980323252d9e1c", "10f3bbca5c6d4b2a94d5971684173b29", "660d2b157694ff3b9d3839eb6d5c891a", "3a09f7311009d4fc20e0284407f3f47b", "0e0bd8f98fdbe3b3a7faa26e2e0748ea", "f0f0dae31d66a528f2b4021a52b37a5c", "b06bec5b710b5e7fed5e1206f84ea096", "0c765e60f29c02e2752e870499d19145", "740c7b016f1e9d8f61ef927e14ad93f1", "6af9a3842c792823a3694326ed6f6e52", "73c36d7735c6936a539823d3deb80721", "3f0c1b109b0db9ba1cf1c63bebd02936", "6217c3eddcd388302ffe2ae1dafdf976", "b8737dba061e2b4e760d4deed69fa71b", "d9c06b8ce82937f872c1c72d7ef07d68", "3d701a785035bc07502548abbc7e3745", "918bb16d4b9c92523c2ef802e5e20f78", "7cf4f3f4b106b8e57050f7d22d95991f", "c3b31204a0dca3f63fbc676b6e598e9c", "8151d255db84288cecdec9c885a91c46", "903a2a502ff717e3e8e89c0584157046", "8ebe37b81fa0acae5d62080c1183b078", "25d4bbe8bbb7625bed4b79dec7c6f0cc", "b19244fca3bc56c33dea50e0ff068d47", "8d8e404afa503c422209a1016d8a03f0", "e6f7d9b6bec1509a1644404dff4a4f5f", "ebc4eeea023b89bc605c5377306171f5", "0e2315e27eaf883ab005cf7fdd4a8c46", "81107e3cb7dcbfeb883282b0821df2a8", "b0f3c3fc0caa6ab74a744568c6f126ee", "82bdc7335229f350044d9c68668bbb84", "431f1ded9761b06601aae603f15e3d7d", "aacf208d3be773f53bd8fea6ad592a7a", "ed51ea2a14d5f00e171d5f3cb871efb8", "3698aa3699a0d0f258fb27d0feffa3a3", "bb24d6a2fb0c1582189612a6a69675f1", "6177a5feb10cf529a43283dd9d18214b", "b6872341e99b191e3b07fe8a76152528", "dd54cfba83fee8bfe1a30cb1f8fe7079", "22924418694b907723c3a8157b94d6b7", "ec9e51c1177a74cf55ea66ef9648bfed", "29e50753b7eacf5f22a29440133c5b7b", "5b0413a0e3ca086d94850cac8f0ebf3c", "6ba111d41f52b555f85babc8aea8b650", "5c1a609108a7c23e25dc1faaaa2c596f", "e0861f2ccb60b325c26c850bd753fd5c", "2e304354a16e4bed4d6057c520cc43a9", "b8639636956345d000191e6a67d9473b", "d5449b2a25d46f3ab537b48e0f6707d4", "05423360cbf5fc4edf7dc1a9b2ec9988", "8bc2d42bb3dbc0d7a91acf918f8bbf7f", "80dffb8433ac5ccd836799e420f9db58", "0241da9d0a86d50f4f8fbe8ea3c416fa", "27371050faf11859255e1e8371f40f9f", "ad9a7f2dbf43a8b5bc055b8186654ce6", "8c18fc9e704d5d80942ae5398ab4ab06", "c09e3e168c7a0af8a4f405eb73082ea0", "03ed3e37410ff593567b2b215bdfc7c5", "8081e9bfc5f7d5cedba900c2f31f8f01", "70f1790012b5a85bcf28aad57773c228", "b1655a6231c3ae1dcb0f21d271808d6e", "75a8c3a95712f748c7c24430d8d7421c", "39c947ee62fcfae18720946d3a52e665", "77924a5651e4c5d8174ba9b26f1495a3", "b6e0ba730d048fab56243f27f0a352de", "59e7003d33bb70fd4c45bc4b0579b111", "c205335be4fa59535b83c33339f57ea2", "fce616992e79be091898dad53b51d90e", "c2fde9d3ea092745a7dec89891cc9e63", "a7cba0cb2322c043c02867383742f879", "3955dbc18348497f75f1b6ec98d0e113", "0890069af62cfa36331d7278ca18dc97", "4db9e1d0ffe4e62cf649af6a9865df93", "cb0e35c6148db5aab2714c88ddf55590", "be57465b3f86206f324fabb02d086e6c", "2525ca65d1d5d620ee82f4279eb2834d", "fe08096ec37d7210caaf9c61760d73e5", "c9d9b052900b7c9da0fd3b0f46768b0b", "c3b2bac027d062ab25d1a9219054695e", "64bd87807b6a4ac1d40ea8143c04f42e", "8f36de1872468ac88dafa6ca84f34b20", "6666af588413fd5c65fa021149ff1f8e", "c5df7e1e3ad1d6233511a4c67b980974", "0a2e1669393e926dca068b5c8cdd52ff", "a26b28ad7daf3bb719c53946022250ee", "519e36bb14b450e5f5c844b68fc9a852", "bc69389c880ca79193d4434ff5240b3e", "cc78690f319fd34bd09ae6b502b7c70c", "ee946e1c6af9e4104ee1e527f16c3603", "7cb4eabe1896676805039d55a66869a2", "fff5803a3598601feca44738a102756d", "6827b88f10a9c612c1f3a2422136f55a", "098c3d6fbf70cb0b0b8349c3bc982fc1", "6fef9a3dcd67e5c766c5f0a268eb6819", "29ef7e8a0ef62ce17d98afa828ce536d", "a6ab51ee9c351d2478eb4c74245405dd", "b49b32ff9bfd12900289ad4423dac15f", "f772dd4fb0236f7a73969623b9c4171d", "2c42fd398791c1e4f026f81f23d0fcd0", "b6b366f486d29c8d1c7c36047539ab50", "12670ca5746ba580a29aace4c6f2ad08", "d8de87b9a57c29ab5b48207751820bfd", "6d86caa809614f9b14e4c33801ffccd7", "87b695d03adda348bf4ef5376e374e40", "d4a237bc0c14ab0e43d5b6cb5e196087", "b19121f73faa237d99c89272ec0f7af6", "67e32b72d16077d8df61522825c736d9", "cf43650e339121eac84ec4b33457f9db", "6fc441d4e79f1ff4a0d7e25b73966562", "09068b031387f72a03e91dd645a60d9b", "777ed3753c3f19db0ab082eed585711b", "ac2b15964d03a67077bd81b7dbcd5e39", "8f1e006d867de5edee8c30719edfe17e", "d88b5216814e2972cba5d963e2d0d1c1", "73bfb02fd752ea52ab5811273cd4eea8", "ab29e73b0cc3864f1c742067fb1adfa1", "bfc4be13dde3f47b2afbb41e8f63f31a", "a2fa4cc3064818c3b4e1554616a54593", "0c28df3c05c76650f4b13da408d4111a", "ab5b57b6cc378b7c579135904369323c", "59997aad31854bad873ddc98a00677bf", "baa2759a35a285561bf19f76b87c2faf", "e6817ae71dcbca6c4382c6e276815b6f", "fd0cd8b7b7555c97441ee0a8d4e5f00a", "ac44fa84eafa54b7d48efc2ebe7d4c1e", "bd7acd2c99d9298ba5818ce2b2da2a22", "d0d8730602565adf86a82b59602d7654", "caf29c0eb3b78c200c5478a9cda9f27d", "7a476fbd6ee5cc69b25a788bbd60ea2f", "2912421385f7154fc750123093846014", "2de69a05374c86f7e15f962170126e88", "a3ddc236e14790542ca177140ed956c5", "722b2b64dc32dad6bd8a95735e6160fd", "953e2f1495bb26d371e2468c1a68b821", "286c62383dc9633f8a52eb28fa75c7f9", "9ea820006145e1496551dd88c392976f", "7aeedbce9c31a9b46b600c9ae29ab402", "74ba7c036b70ed9b110ee3d708fb4b37", "165e763201faedcb9dbfd30abae0c313", "4eae4a8ea7047e1db88df1d81acf9657", "666e57634dbdd61366f445df1ed5eff8", "0eb1585ae278fdb19a338c4141be7c16", "0901d14a4879047ac9963ffe4b525b68", "ebfb44941ed8bbdbd3c7b1c1e654dd76", "1c5b68bd571bd80aaff5c6d62ccc46e3", "aed6e3147b4e1386725178d210b218b1", "139452822136bd4d28db0188a2223f03", "6210cafa500dd3d62833310657fb2530", "c26aa18849d3f24a7727ff4037929f0a", "042b48cc3373db3692b36cd1c4fa4ee3", "a1b5bbda7241deb015bf79765b01677a", "19487df009a64b3acf0cf2492f5f72b9", "0f45f26a96c5e2612b38b8faef1d2d3c", "95433d2f4dba68a8b5ed922660d67125", "e7fe3d38fb0a7d4ac48041e0b8a92d68", "a608cfa300cd8dcccdc41f6b83a79eed", "490625b06382043ececfa179d1089a73", "3cecc72329ec2c3d13852a0299ab0233", "ec8dcaa830112bbbee61245d24008b1f", "917687397798f73b21396a343ce04f02", "5efdff5aa2b8e4cb72d1fbd09532921e", "b13ba576045ab2f627041092f7b5d7a4", "41c492139002efacd83f2fa3b3cfc4e5", "247d6692cc21a4ceb61e2eae5333c172", "b907871d1e724bff320db5eb5ef96fa4", "a1dc5eb619ffb9b787ad6fc0758ea0c1", "269d4a52f2bad1038f22bc8f7329dc5f", "a28e961585165f8b3a81ff28622509f6", "03dd8fa2ee73f861c2d1c33969fe739c", "8df3e07a2dc233cbff262bc5fd8f7cb1", "6e1e0d7b3d0c67430f7c0dca38f61387", "e38936f1279b41bdec74490170312f29", "7eab88d3b200c29b19f6862e89a50f11", "7c1253beeb2285411d15ef45381c6f76", "a8246c9df853187d0dcc3d39a32da2c3", "f484853c4be7fe10d0c60f9eeb96fdbc", "f787300643781f67643d2942f8b120ad", "57accba538ef07fef85eb8dce1c67fbc", "93c6c4101b298edf3190b34bca2d9cf0", "d4b5a62ff36d279cd6e15fb9cd79e87b", "d04265b2950d04b1feabf948e1c52e10", "3cd301b38b4e414a8b7311155a82575b", "a25d29ac4d23d42160e6bbed4c143512", "c0c268dfd711b93fc31fd757418947f3", "2d2b3477bff043f9d6c5184c42823651"];
+  var SALT_HEX = "867b1166928f0b4278fff0b338a8669a";
   var ITER = 150000;
   var TOTAL = FP.length;
-  var KEY = "wedding-entry-desk-v2";
+  var KEY = "wedding-entry-desk-ar-v3";
 
   var fpIndex = Object.create(null);
   FP.forEach(function(h, i){ fpIndex[h] = i + 1; });
@@ -10317,7 +10318,7 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
 
   function fmt(ts){
     var d = new Date(ts), h = d.getHours(), m = d.getMinutes();
-    var ap = h >= 12 ? "PM" : "AM";
+    var ap = h >= 12 ? "م" : "ص";
     h = h % 12; if (h === 0) h = 12;
     return h + ":" + (m < 10 ? "0" : "") + m + " " + ap;
   }
@@ -10357,7 +10358,6 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
     $("progress").style.width = (n / TOTAL * 100) + "%";
   }
 
-  // ---- fingerprint a scanned code (same recipe used to build the list) ----
   var subtle = (window.crypto && window.crypto.subtle) || null;
   var fpCache = Object.create(null);
   function fingerprint(code){
@@ -10377,11 +10377,15 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
       });
   }
 
+  // يقبل الأرقام العربية والهندية معًا
   function normalise(raw){
-    return String(raw == null ? "" : raw).trim().toUpperCase().replace(/\s+/g, "");
+    var s = String(raw == null ? "" : raw).trim().toUpperCase().replace(/\s+/g, "");
+    return s.replace(/[٠-٩۰-۹]/g, function(d){
+      var c = d.charCodeAt(0);
+      return String(c >= 0x06F0 ? c - 0x06F0 : c - 0x0660);
+    });
   }
 
-  // Resolve input to a pass number. Numbers resolve instantly; codes are hashed.
   function resolve(raw){
     var s = normalise(raw);
     if (!s) return Promise.resolve(0);
@@ -10398,44 +10402,42 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
   function admit(raw){
     if (checking) return;
     checking = true;
-    show("v-wait", "·", "Checking…", "", "");
+    show("v-wait", "·", "جارٍ التحقق…", "", "");
     resolve(raw).then(function(num){
       checking = false;
       if (!num){
         beep("bad"); buzz([80,60,80]);
-        show("v-bad", "✕", "Not a valid pass", "This code is not on the guest list.", normalise(raw).slice(0, 40));
+        show("v-bad", "✕", "دعوة غير صالحة", "هذا الكود غير موجود في قائمة الضيوف.", normalise(raw).slice(0, 40));
         return;
       }
       if (used[num]){
         beep("warn"); buzz([150,80,150]);
-        show("v-warn", "!", "Already used", "Pass " + num + " was admitted at " + fmt(used[num]) + ".", "");
+        show("v-warn", "!", "دعوة مستخدمة", "الدعوة رقم " + num + " دخلت الساعة " + fmt(used[num]) + ".", "");
       } else {
         used[num] = Date.now(); save(); stats(); render();
         beep("ok"); buzz(60);
-        show("v-ok", "✓", "Welcome in", "Pass " + num + " of " + TOTAL + " · admitted " + fmt(used[num]), "");
+        show("v-ok", "✓", "أهلاً وسهلاً", "الدعوة رقم " + num + " من " + TOTAL + " · دخلت الساعة " + fmt(used[num]), "");
       }
     }).catch(function(){
       checking = false;
-      show("v-bad", "✕", "Cannot verify here",
-           "Open this page over https so the pass check can run.", "");
+      show("v-bad", "✕", "تعذّر التحقق", "افتح الصفحة عبر رابط https حتى يعمل التحقق من الدعوات.", "");
     });
   }
 
-  // ---------- guest list ----------
   function render(){
-    var q = (searchEl.value || "").replace(/\D/g, "");
+    var q = normalise(searchEl.value || "").replace(/\D/g, "");
     var frag = document.createDocumentFragment(), shown = 0;
     for (var num = 1; num <= TOTAL; num++){
       if (q && String(num).indexOf(q) !== 0) continue;
-      if (++shown > 300) break;
+      if (++shown > 350) break;
       var row = document.createElement("div");
       row.className = "row" + (used[num] ? " used" : "");
-      var n = document.createElement("span"); n.className = "n"; n.textContent = "Pass " + num;
+      var n = document.createElement("span"); n.className = "n"; n.textContent = "دعوة " + num;
       var s = document.createElement("span"); s.className = "s";
-      s.textContent = used[num] ? "Admitted " + fmt(used[num]) : "Not yet in";
+      s.textContent = used[num] ? "دخلت " + fmt(used[num]) : "لم تدخل بعد";
       var b = document.createElement("button");
       b.className = "btn-ghost";
-      b.textContent = used[num] ? "Undo" : "Admit";
+      b.textContent = used[num] ? "تراجع" : "إدخال";
       b.setAttribute("data-num", num);
       row.appendChild(n); row.appendChild(s); row.appendChild(b);
       frag.appendChild(row);
@@ -10443,7 +10445,7 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
     rowsEl.innerHTML = "";
     if (!shown){
       var e = document.createElement("div"); e.className = "empty";
-      e.textContent = "No pass with that number.";
+      e.textContent = "لا توجد دعوة بهذا الرقم.";
       rowsEl.appendChild(e);
     } else rowsEl.appendChild(frag);
   }
@@ -10464,31 +10466,30 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
   $("manual").addEventListener("keydown", function(e){ if (e.key === "Enter") $("checkBtn").click(); });
 
   $("exportBtn").addEventListener("click", function(){
-    var lines = ["Pass,Status,Time in"], n = 0;
+    var lines = ["رقم الدعوة,الحالة,وقت الدخول"], n = 0;
     for (var num = 1; num <= TOTAL; num++){
       if (used[num]) n++;
-      lines.push(num + "," + (used[num] ? "ADMITTED" : "not used") + "," + (used[num] ? fmt(used[num]) : ""));
+      lines.push(num + "," + (used[num] ? "دخلت" : "لم تدخل") + "," + (used[num] ? fmt(used[num]) : ""));
     }
-    var txt = "Admitted " + n + " of " + TOTAL + "\n\n" + lines.join("\n");
+    var txt = "دخل " + n + " من " + TOTAL + "\n\n" + lines.join("\n");
     try{
       var w = window.open("", "_blank");
       if (w && w.document){
-        w.document.write("<pre style='font:13px/1.5 monospace;padding:16px'>" +
+        w.document.write("<meta charset='utf-8'><pre dir='rtl' style=\"font:13px/1.8 Tajawal,monospace;padding:16px\">" +
           txt.replace(/[<>&]/g, function(c){ return {"<":"&lt;",">":"&gt;","&":"&amp;"}[c]; }) + "</pre>");
         w.document.close();
         return;
       }
     }catch(e){}
-    prompt("Entry record (copy this):", txt);
+    prompt("سجل الدخول (انسخه):", txt);
   });
 
   $("resetBtn").addEventListener("click", function(){
-    if (!confirm("Clear every check-in on this phone? All " + TOTAL + " passes become unused.")) return;
+    if (!confirm("مسح كل تسجيلات الدخول على هذا الهاتف؟ ستعود كل الدعوات (" + TOTAL + ") غير مستخدمة.")) return;
     used = {}; save(); stats(); render();
     verdict.className = "verdict";
   });
 
-  // ---------- camera ----------
   var video = $("video"), stream = null, raf = null, detector = null, canvas = null, ctx = null;
   var lastCode = "", lastAt = 0;
 
@@ -10532,7 +10533,7 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
   function start(){
     $("camErr").style.display = "none";
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
-      fail("This browser will not open the camera here. Use the pass number box above instead.");
+      fail("هذا المتصفح لا يسمح بفتح الكاميرا هنا. استخدم خانة رقم الدعوة بالأعلى.");
       return;
     }
     navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:"environment"}, width:{ideal:1280}, height:{ideal:1280}}, audio:false})
@@ -10549,9 +10550,9 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
         loop();
       })
       .catch(function(err){
-        var msg = "Could not open the camera. Allow camera access for this page, then tap Start camera again.";
-        if (err && err.name === "NotAllowedError") msg = "Camera access was blocked. Allow it in your browser settings, then tap Start camera again.";
-        if (err && (err.name === "NotFoundError" || err.name === "OverconstrainedError")) msg = "No camera found on this device. Use the pass number box above.";
+        var msg = "تعذّر فتح الكاميرا. اسمح بالوصول إلى الكاميرا لهذه الصفحة ثم اضغط «تشغيل الكاميرا» مرة أخرى.";
+        if (err && err.name === "NotAllowedError") msg = "تم منع الوصول إلى الكاميرا. فعّل الإذن من إعدادات المتصفح ثم اضغط «تشغيل الكاميرا» مرة أخرى.";
+        if (err && (err.name === "NotFoundError" || err.name === "OverconstrainedError")) msg = "لا توجد كاميرا في هذا الجهاز. استخدم خانة رقم الدعوة بالأعلى.";
         fail(msg);
       });
   }
