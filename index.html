@@ -124,6 +124,14 @@ details.list[open] summary::after{content:"\25B4"}
 .empty{text-align:center; color:var(--muted); font-size:13.5px; padding:18px}
 footer{text-align:center; color:var(--muted); font-size:12.5px; line-height:1.9}
 .err{color:var(--bad); font-size:13.5px; margin:0}
+.flash{position:absolute; inset:0; display:none; flex-direction:column; align-items:center; justify-content:center; gap:10px; text-align:center; padding:20px; z-index:3}
+.flash.show{display:flex; animation:pop .2s ease-out}
+.flash b{font-size:64px; line-height:1}
+.flash strong{font-size:clamp(24px,7vw,34px); line-height:1.3}
+.flash span{font-size:17px; font-weight:500}
+.flash.v-ok{background:rgba(28,122,76,.92); color:#fff}
+.flash.v-warn{background:rgba(156,100,16,.92); color:#fff}
+.flash.v-bad{background:rgba(167,43,56,.92); color:#fff}
 </style>
 </head>
 <body>
@@ -147,6 +155,7 @@ footer{text-align:center; color:var(--muted); font-size:12.5px; line-height:1.9}
       </div>
       <div class="reticle"><i></i><i></i><i></i><i></i></div>
       <div class="scanbar"></div>
+      <div id="flash" class="flash" role="presentation"><b id="fMark"></b><strong id="fTitle"></strong><span id="fLine"></span></div>
     </div>
     <div class="btn-row">
       <button id="startBtn" class="btn-primary">تشغيل الكاميرا</button>
@@ -10301,7 +10310,7 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
   var SALT_HEX = "867b1166928f0b4278fff0b338a8669a";
   var ITER = 150000;
   var TOTAL = FP.length;
-  var KEY = "wedding-entry-desk-ar-v3";
+  var KEY = "wedding-entry-desk-ar-v4";
 
   var fpIndex = Object.create(null);
   FP.forEach(function(h, i){ fpIndex[h] = i + 1; });
@@ -10347,6 +10356,12 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
     verdict.className = "verdict show " + kind;
     vMark.textContent = mark; vTitle.textContent = title; vLine.textContent = line;
     vCode.textContent = code || "";
+    var f = $("flash");
+    clearTimeout(show.t);
+    if (kind === "v-wait" || !document.body.classList.contains("live")){ f.className = "flash"; return; }
+    f.className = "flash show " + kind;
+    $("fMark").textContent = mark; $("fTitle").textContent = title; $("fLine").textContent = line;
+    show.t = setTimeout(function(){ f.className = "flash"; }, 3000);
   }
 
   function stats(){
@@ -10398,7 +10413,7 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
     return fingerprint(candidate).then(function(hex){ return fpIndex[hex] || 0; });
   }
 
-  var checking = false;
+  var checking = false, justIn = 0, justInAt = 0;
   function admit(raw){
     if (checking) return;
     checking = true;
@@ -10410,13 +10425,21 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
         show("v-bad", "✕", "دعوة غير صالحة", "هذا الكود غير موجود في قائمة الضيوف.", normalise(raw).slice(0, 40));
         return;
       }
+      if (used[num] && num === justIn && Date.now() - justInAt < 10000){
+        // نفس الدعوة ما زالت أمام الكاميرا بعد تسجيلها: أبقِ رسالة النجاح ظاهرة
+        verdict.className = "verdict show v-ok"; vMark.textContent = "✓";
+        vTitle.textContent = "تم التسجيل · أهلاً وسهلاً";
+        vLine.textContent = "الدعوة رقم " + num + " سُجّلت الساعة " + fmt(used[num]); vCode.textContent = "";
+        return;
+      }
       if (used[num]){
         beep("warn"); buzz([150,80,150]);
-        show("v-warn", "!", "دعوة مستخدمة", "الدعوة رقم " + num + " دخلت الساعة " + fmt(used[num]) + ".", "");
+        show("v-warn", "!", "مسجّلة من قبل", "الدعوة رقم " + num + " سُجّلت الساعة " + fmt(used[num]) + ".", "");
       } else {
         used[num] = Date.now(); save(); stats(); render();
+        justIn = num; justInAt = used[num];
         beep("ok"); buzz(60);
-        show("v-ok", "✓", "أهلاً وسهلاً", "الدعوة رقم " + num + " من " + TOTAL + " · دخلت الساعة " + fmt(used[num]), "");
+        show("v-ok", "✓", "تم التسجيل · أهلاً وسهلاً", "الدعوة رقم " + num + " سُجّلت الساعة " + fmt(used[num]), "");
       }
     }).catch(function(){
       checking = false;
