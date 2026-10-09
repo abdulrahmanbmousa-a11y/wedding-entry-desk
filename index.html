@@ -120,6 +120,7 @@ details.list[open] summary::after{content:"\25B4"}
 .row .s{flex:1; font-size:13px; color:var(--muted); min-width:0}
 .row.used .s{color:var(--ok)}
 .row.used{background:var(--ok-soft); border-color:var(--ok)}
+.row .side{font-size:11.5px; font-weight:700; padding:2px 8px; border-radius:999px; border:1px solid var(--line); color:var(--accent); flex:0 0 auto; white-space:nowrap}
 .row button{padding:6px 14px; font-size:12.5px; border-radius:7px; flex:0 0 auto}
 .empty{text-align:center; color:var(--muted); font-size:13.5px; padding:18px}
 footer{text-align:center; color:var(--muted); font-size:12.5px; line-height:1.9}
@@ -10310,6 +10311,10 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
   var SALT_HEX = "867b1166928f0b4278fff0b338a8669a";
   var ITER = 150000;
   var TOTAL = FP.length;
+  // الدعوات 1–100 طُبعت على بطاقات أم العروس، و101–300 على بطاقات أم العريس
+  // (رقم الدعوة = الرقم داخل كود WED-NNN). العدّ يبقى موحّدًا لكل الـ300.
+  var BRIDE_MOM_LAST = 100;
+  function side(num){ return num <= BRIDE_MOM_LAST ? "دعوات أم العروس" : "دعوات أم العريس"; }
   var KEY = "wedding-entry-desk-ar-v5";
 
   var fpIndex = Object.create(null);
@@ -10429,17 +10434,17 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
         // نفس الدعوة ما زالت أمام الكاميرا بعد تسجيلها: أبقِ رسالة النجاح ظاهرة
         verdict.className = "verdict show v-ok"; vMark.textContent = "✓";
         vTitle.textContent = "تم التسجيل · أهلاً وسهلاً";
-        vLine.textContent = "الدعوة رقم " + num + " سُجّلت الساعة " + fmt(used[num]); vCode.textContent = "";
+        vLine.textContent = "الدعوة رقم " + num + " · " + side(num) + " · سُجّلت الساعة " + fmt(used[num]); vCode.textContent = "";
         return;
       }
       if (used[num]){
         beep("warn"); buzz([150,80,150]);
-        show("v-warn", "!", "مسجّلة من قبل", "الدعوة رقم " + num + " سُجّلت الساعة " + fmt(used[num]) + ".", "");
+        show("v-warn", "!", "مسجّلة من قبل", "الدعوة رقم " + num + " · " + side(num) + " · سُجّلت الساعة " + fmt(used[num]) + ".", "");
       } else {
         used[num] = Date.now(); save(); stats(); render();
         justIn = num; justInAt = used[num];
         beep("ok"); buzz(60);
-        show("v-ok", "✓", "تم التسجيل · أهلاً وسهلاً", "الدعوة رقم " + num + " سُجّلت الساعة " + fmt(used[num]), "");
+        show("v-ok", "✓", "تم التسجيل · أهلاً وسهلاً", "الدعوة رقم " + num + " · " + side(num) + " · سُجّلت الساعة " + fmt(used[num]), "");
       }
     }).catch(function(){
       checking = false;
@@ -10462,7 +10467,8 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
       b.className = "btn-ghost";
       b.textContent = used[num] ? "تراجع" : "إدخال";
       b.setAttribute("data-num", num);
-      row.appendChild(n); row.appendChild(s); row.appendChild(b);
+      var sd = document.createElement("span"); sd.className = "side"; sd.textContent = side(num).replace("دعوات ", "");
+      row.appendChild(n); row.appendChild(sd); row.appendChild(s); row.appendChild(b);
       frag.appendChild(row);
     }
     rowsEl.innerHTML = "";
@@ -10489,10 +10495,10 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
   $("manual").addEventListener("keydown", function(e){ if (e.key === "Enter") $("checkBtn").click(); });
 
   $("exportBtn").addEventListener("click", function(){
-    var lines = ["رقم الدعوة,الحالة,وقت الدخول"], n = 0;
+    var lines = ["رقم الدعوة,الجهة,الحالة,وقت الدخول"], n = 0;
     for (var num = 1; num <= TOTAL; num++){
       if (used[num]) n++;
-      lines.push(num + "," + (used[num] ? "دخلت" : "لم تدخل") + "," + (used[num] ? fmt(used[num]) : ""));
+      lines.push(num + "," + side(num) + "," + (used[num] ? "دخلت" : "لم تدخل") + "," + (used[num] ? fmt(used[num]) : ""));
     }
     var txt = "دخل " + n + " من " + TOTAL + "\n\n" + lines.join("\n");
     try{
